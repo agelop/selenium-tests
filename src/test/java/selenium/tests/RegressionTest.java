@@ -6,9 +6,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class RegressionTest {
@@ -24,33 +26,31 @@ public class RegressionTest {
 
     private static WebDriver driver;
     private static WebDriverWait wait;
-    private static Actions action;
-    private static ChromeOptions options;
+
 
     public RegressionTest() {
         //Change this constructor to private if you supply your own public constructor
     }
 
+
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         WebDriverManager.chromedriver().forceCache();
         WebDriverManager.chromedriver().version("2.41").setup();
-        options = new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
 
         driver = new ChromeDriver(options);
 
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
-        wait.pollingEvery(3, TimeUnit.SECONDS);
-
-        action = new Actions(driver);
+        wait.pollingEvery(5, TimeUnit.SECONDS);
 
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
         driver.get(ADV_WEBSITE);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
 
     }
@@ -86,6 +86,7 @@ public class RegressionTest {
 
         //Go to Cart to Remove
         WebElement shoppingCart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("shoppingCartLink")));
+        Actions action = new Actions(driver);
         action.moveToElement(shoppingCart).build().perform();
         action.release();
 
@@ -105,6 +106,7 @@ public class RegressionTest {
 
         //Refresh tab
         driver.navigate().refresh();
+        Thread.sleep(3000);
 
 
     }
@@ -138,6 +140,10 @@ public class RegressionTest {
         String actualPrice = priceText.getText();
         Assert.assertEquals(expectedPrice, actualPrice);
 
+        // Save screenshot
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(scrFile, new File("target\\screenshots\\tablet.png"));
+
     }
 
     @Test
@@ -168,6 +174,11 @@ public class RegressionTest {
         String expectedPrice = "$201.00";
         String actualPrice = priceText.getText();
         Assert.assertEquals(expectedPrice, actualPrice);
+
+        // Save screenshot
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileHandler.copy(scrFile, new File("target\\screenshots\\speaker.png"));
+
 
     }
 
