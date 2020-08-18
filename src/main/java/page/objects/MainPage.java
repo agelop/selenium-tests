@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class AosMainPage extends BasePage {
+public class MainPage extends BasePage {
 
     By loaderLocator = By.className("loader");
 
@@ -21,7 +21,7 @@ public class AosMainPage extends BasePage {
 
     By signinLocator = By.id("sign_in_btnundefined");
 
-    public AosMainPage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         super(driver);
         waitForLoadPage();
     }

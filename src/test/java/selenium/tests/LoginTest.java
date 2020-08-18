@@ -1,12 +1,13 @@
 package selenium.tests;
 
-import flows.AosFlows;
+import flows.MainFlows;
+import flows.HomeFlows;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import page.objects.AosMainPage;
+import page.objects.MainPage;
 import page.objects.HomePage;
 import tests.BaseTest;
 
@@ -94,7 +95,7 @@ public class LoginTest extends BaseTest {
     public void checkLoggedUser2() {
 
         getDriver().get(ADV_WEBSITE);
-        AosMainPage mainpage = new AosMainPage(getDriver());
+        MainPage mainpage = new MainPage(getDriver());
 
         mainpage.clickUserIcon();
 
@@ -114,11 +115,24 @@ public class LoginTest extends BaseTest {
     public void checkLoggedUser3() {
 
         getDriver().get(ADV_WEBSITE);
-        AosFlows flows = new AosFlows(getDriver());
+        MainFlows flows = new MainFlows(getDriver());
 
         String loggedUser = flows.SignIn(ADV_LOGIN, ADV_PASSWORD);
 
         Assert.assertEquals(ADV_LOGIN,loggedUser);
+
+        flows.SignOut();
+
+    }
+
+
+    @Test
+    public void checkLoggedUser4() {
+
+        getDriver().get(ADV_WEBSITE);
+        HomeFlows flows = new HomeFlows(getDriver());
+
+        Assert.assertEquals(ADV_LOGIN,flows.SignIn(ADV_LOGIN, ADV_PASSWORD));
 
         flows.SignOut();
 

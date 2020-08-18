@@ -2,14 +2,14 @@ package flows;
 
 
 import org.openqa.selenium.WebDriver;
-import page.objects.AosMainPage;
+import page.objects.MainPage;
 import page.objects.BasePage;
 
-public class AosFlows extends BasePage {
+public class MainFlows extends BasePage {
 
-    AosMainPage mainpage = new AosMainPage(driver);
+    MainPage mainpage = new MainPage(driver);
 
-    public AosFlows(WebDriver driver) {
+    public MainFlows(WebDriver driver) {
         super(driver);
     }
 
