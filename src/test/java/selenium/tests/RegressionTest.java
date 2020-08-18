@@ -68,16 +68,19 @@ public class RegressionTest {
         //Waiting Page To Fully Load
         wait.until(ExpectedConditions.attributeToBe(By.className("loader"),"style", "display: none; opacity: 0;"));
 
-        //AosFlows to Advantage
+        //SignIn to Advantage - Click User Icon
         WebElement userButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
         userButton.click();
 
+        //Enter User Name
         WebElement usernameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
         usernameField.sendKeys(ADV_LOGIN);
 
+        //Enter Password
         WebElement passwdField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
         passwdField.sendKeys(ADV_PASSWORD);
 
+        //Click SignIn Button
         WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("sign_in_btnundefined")));
         signInButton.click();
 
@@ -93,6 +96,7 @@ public class RegressionTest {
         WebElement userButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
         userButton.click();
 
+        //Click Signout Menu
         WebElement signoutMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"loginMiniTitle\"]/label[3]")));
         signoutMenu.click();
 
