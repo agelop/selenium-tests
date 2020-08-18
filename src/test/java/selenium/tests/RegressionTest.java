@@ -68,7 +68,7 @@ public class RegressionTest {
         //Waiting Page To Fully Load
         wait.until(ExpectedConditions.attributeToBe(By.className("loader"),"style", "display: none; opacity: 0;"));
 
-        //Login to Advantage
+        //AosFlows to Advantage
         WebElement userButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("hrefUserIcon")));
         userButton.click();
 

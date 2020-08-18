@@ -1,5 +1,6 @@
 package selenium.tests;
 
+import flows.AosFlows;
 import org.junit.*;
 import page.objects.AosMainPage;
 import page.objects.HomePage;
@@ -38,8 +39,8 @@ public class LoginTest extends BaseTest {
     public void checkLoggedUser1() {
 
         getDriver().get(ADV_WEBSITE);
-
         AosMainPage mainpage = new AosMainPage(getDriver());
+
         mainpage.clickUserIcon();
 
         mainpage.fillUsername(ADV_LOGIN);
@@ -51,6 +52,20 @@ public class LoginTest extends BaseTest {
 
         mainpage.clickUserIcon();
         mainpage.clickSignout();
+
+    }
+
+    @Test
+    public void checkLoggedUser2() {
+
+        getDriver().get(ADV_WEBSITE);
+        AosFlows flows = new AosFlows(getDriver());
+
+        String loggedUSer = flows.SignIn(ADV_LOGIN, ADV_PASSWORD);
+
+        Assert.assertEquals(ADV_LOGIN,loggedUSer);
+
+        flows.SignOut();
 
     }
 
