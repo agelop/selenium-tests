@@ -51,6 +51,6 @@ public class HomePage extends BasePage {
 
     public void fillPassword(String password) { this.password.sendKeys(password);  }
 
-    public void clickSignin() { this.signin.click(); }
+    public void clickSignin() { wait.until(ExpectedConditions.elementToBeClickable(this.signin)).click(); }
 
 }
