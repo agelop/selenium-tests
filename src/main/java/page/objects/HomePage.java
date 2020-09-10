@@ -47,7 +47,7 @@ public class HomePage extends BasePage {
 
     public void clickSignout() { this.signoutMenu.click(); }
 
-    public void fillUsername(String email) { this.username.sendKeys(email); }
+    public void fillUsername(String email) { wait.until(ExpectedConditions.visibilityOf(this.username)).sendKeys(email); }
 
     public void fillPassword(String password) { this.password.sendKeys(password);  }
 
