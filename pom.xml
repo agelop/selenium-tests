@@ -11,7 +11,7 @@
     <properties>
         <junit.ver>4.12</junit.ver>
         <se.ver>2.53.1</se.ver>
-        <webdrivermanager.ver>3.0.0</webdrivermanager.ver>
+        <webdrivermanager.ver>4.4.0</webdrivermanager.ver>
     </properties>
 
     <dependencies>

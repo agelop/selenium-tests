@@ -33,8 +33,7 @@ public class RegressionTest {
 
     @BeforeClass
     public static void setUpBeforeClass() {
-        WebDriverManager.chromedriver().forceCache();
-        WebDriverManager.chromedriver().version("2.41").setup();
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
 
