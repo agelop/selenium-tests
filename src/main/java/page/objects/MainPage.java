@@ -19,7 +19,7 @@ public class MainPage extends BasePage {
 
     By passwordLocator = By.name("password");
 
-    By signinLocator = By.id("sign_in_btnundefined");
+    By signinLocator = By.id("sign_in_btn");
 
     public MainPage(WebDriver driver) {
         super(driver);

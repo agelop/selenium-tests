@@ -80,7 +80,7 @@ public class RegressionTest {
         passwdField.sendKeys(ADV_PASSWORD);
 
         //Click SignIn Button
-        WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("sign_in_btnundefined")));
+        WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("sign_in_btn")));
         signInButton.click();
 
         //Waiting Page to Refresh

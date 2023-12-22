@@ -26,7 +26,7 @@ public class HomePage extends BasePage {
     @FindBy(name = "password")
     private WebElement password;
 
-    @FindBy(id = "sign_in_btnundefined")
+    @FindBy(id = "sign_in_btn")
     private WebElement signin;
 
     public HomePage(WebDriver driver) {
