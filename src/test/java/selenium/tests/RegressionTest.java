@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 
 public class RegressionTest {
@@ -40,8 +40,8 @@ public class RegressionTest {
         driver = new ChromeDriver(options);
 
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 30);
-        wait.pollingEvery(5, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.pollingEvery(Duration.ofSeconds(5));
 
         //driver.manage().deleteAllCookies();
         //driver.manage().window().maximize();

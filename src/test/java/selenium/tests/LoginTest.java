@@ -11,7 +11,7 @@ import page.objects.MainPage;
 import page.objects.HomePage;
 import tests.BaseTest;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class LoginTest extends BaseTest {
 
@@ -30,8 +30,8 @@ public class LoginTest extends BaseTest {
 
         //Configure Wait
         WebDriverWait wait;
-        wait = (new WebDriverWait(getDriver(), 30));
-        wait.pollingEvery(5, TimeUnit.SECONDS);
+        wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
+        wait.pollingEvery(Duration.ofSeconds(5));
 
         //Waiting Page To Fully Load
         wait.until(ExpectedConditions.attributeToBe(By.className("loader"),"style", "display: none; opacity: 0;"));
