@@ -19,8 +19,8 @@ public class RegressionTest {
 
     //You will need to have an account created in AOS and will need to supply the credentials
     //These are known defaults as of 2018/sep/12
-    private static final String ADV_LOGIN    = "Mercury"; //"insert login name here";
-    private static final String ADV_PASSWORD = "Mercury"; //"insert password here";
+    private static final String ADV_LOGIN    = "User1"; //"insert login name here";
+    private static final String ADV_PASSWORD = "User1"; //"insert password here";
 
     private static WebDriver driver;
     private static WebDriverWait wait;
